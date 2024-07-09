@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <h3 class="text-dark">Welcome <span class="text-capitalize">{{ customer.username }}</span></h3>
+
+        <div class="col-sm-3 border-end pt-4">
+            <ul class="list-unstyled">
+                <li class="d-grid mb-3"><a href="#" class="btn btn-primary">Profile</a></li>
+                <li class="d-grid"><a href="/change-password/{{ customer.id }}" class="btn btn-secondary">Change Password</a></li>
+                <li class="d-grid"><a href="/order-history/{{ customer.id }}" class="btn btn-info">Order History</a></li>
+                <li class="d-grid"><a href="/wishlist/{{ customer.id }}" class="btn btn-warning">Wishlist</a></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-8 offset-sm-1 bg-white rounded shadow p-4 mt-4">
+            <h4 class="mb-3">{{ customer.username }}</h4>
+            <p><strong>Email:</strong> {{ customer.email }}</p>
+            <p><strong>Joined:</strong> {{ customer.date_joined }}</p>
+            <p><strong>Last Login:</strong> {{ customer.last_login }}</p>
+            <p><strong>Account Type:</strong> {{ customer.account_type }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Discover Fresh Organic Produce</h1>
+        <p class="lead">From our farm to your table</p>
+    </div>
+</section>
+
+<!-- Organic Products Section -->
+<section class="organic-products bg-light py-5">
+    <div class="container">
+        <div class="row">
+            {% for item in items %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ url_for('static', filename='image_Files/' ~ item.product_picture) }}" class="card-img-top" alt="{{ item.product_name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.product_name }}</h5>
+                        <p class="card-text text-muted mb-3">Price: Ksh {{ item.current_price }}</p>
+                        <a href="/add-to-cart/{{ item.id }}" class="btn btn-primary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Free Delivery & Organic Juice Section -->
+<section class="free-delivery bg-secondary text-white py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Enjoy Free Delivery</h2>
+        <p class="lead mb-4">Get your organic products delivered to your doorstep for free</p>
+        <h3 class="mb-4">Try Our Biologic Juice</h3>
+        <p class="lead mb-4">Enjoy the refreshing taste of our organic juice, available at competitive prices</p>
+        <p class="lead">Find our juice stands in every location</p>
+    </div>
+</section>
+
+<!-- Additional Information Section -->
+<section class="additional-info py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="info-box bg-light shadow-sm p-4 mb-4">
+                    <h3 class="mb-3">Why Choose Us?</h3>
+                    <p class="text-muted">We offer a wide selection of fresh, organic produce directly from our farm to ensure the highest quality and taste. With our commitment to sustainability and ethical farming practices, you can trust that you're making a healthy choice for yourself and the environment.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="info-box bg-light shadow-sm p-4 mb-4">
+                    <h3 class="mb-3">Our Mission</h3>
+                    <p class="text-muted">At our farm, we're dedicated to promoting health and wellness through organic farming. Our mission is to provide nutritious and delicious produce while prioritizing environmental sustainability and supporting local communities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

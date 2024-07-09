@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Shop Items {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Add Shop Items</h2>
+
+    <div class="card shadow-sm border-0 rounded">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Add New Item</h5>
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for('admin.add_shop_items') }}" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="productName">Product Name</label>
+                        {{ form.product_name(class="form-control", id="productName", placeholder="Enter product name") }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="currentPrice">Current Price</label>
+                        {{ form.current_price(class="form-control", id="currentPrice", placeholder="Enter current price") }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="previousPrice">Previous Price</label>
+                        {{ form.previous_price(class="form-control", id="previousPrice", placeholder="Enter previous price") }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="inStock">In Stock</label>
+                        {{ form.in_stock(class="form-control", id="inStock", placeholder="Enter stock quantity") }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="flashSale">Flash Sale</label>
+                        {{ form.flash_sale(class="form-control", id="flashSale") }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="productPicture">Product Picture</label>
+                        {{ form.product_picture(class="form-control-file", id="productPicture") }}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-block mt-4">Add Product</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
