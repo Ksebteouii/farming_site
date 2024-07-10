@@ -18,7 +18,7 @@
             {% for item in items %}
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
-                    <img src="{{ url_for('static', filename='image_Files/' ~ item.product_picture) }}" class="card-img-top" alt="{{ item.product_name }}">
+                    <img src="{{ url_for('admin.get_image', filename=item.product_picture) }}" class="card-img-top" alt="{{ item.product_name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ item.product_name }}</h5>
                         <p class="card-text text-muted mb-3">Price: Ksh {{ item.current_price }}</p>
