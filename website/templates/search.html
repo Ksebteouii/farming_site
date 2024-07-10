@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form action="{{ url_for('views.search') }}" method="GET" class="d-flex">
+            <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+
+        {% if items | length < 1 %}
+            <h3>No Items Match your Search query</h3>
+        {% else %}
+            <div class="row mt-4">
+                {% for item in items %}
+                    <div class="col-md-3 mb-4">
+                        <div class="card">
+                            <img src="{{ url_for('media_files', filename=item.product_picture) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.product_name }}</h5>
+                                <p class="card-text">Ksh {{ item.current_price }}</p>
+                                <a href="/add-to-cart/{{ item.id }}" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

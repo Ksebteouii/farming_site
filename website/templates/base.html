@@ -42,7 +42,7 @@
                 {% if current_user.is_authenticated %}
                 <!-- If user is logged in -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+                    <a class="nav-link" href="{{ url_for('views.show_cart') }}"><i class="fas fa-shopping-cart"></i> Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-heart"></i> Wishlist</a></li>
@@ -53,13 +53,13 @@
                     <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                         <li><a class="dropdown-item" href="{{ url_for('auth.profile', customer_id=current_user.id) }}">Profile <i class="fas fa-user"></i></a></li>
                         <li><a class="dropdown-item" href="#">Orders <i class="fas fa-truck-fast"></i></a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('auth.log_out') }}">Log Out <i class="fas fa-sign-out-alt"></i></a></li> <!-- Changed here -->
+                        <li><a class="dropdown-item" href="{{ url_for('auth.log_out') }}">Log Out <i class="fas fa-sign-out-alt"></i></a></li>
                     </ul>
                 </li>
                 {% else %}
                 <!-- If user is not logged in -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+                    <a class="nav-link" href="{{ url_for('views.show_cart') }}"><i class="fas fa-shopping-cart"></i> Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-heart"></i> Wishlist</a></li>
