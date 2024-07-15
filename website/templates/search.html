@@ -4,8 +4,8 @@
 
 {% block body %}
     <div class="container">
-        <form action="{{ url_for('views.search') }}" method="GET" class="d-flex">
-            <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+        <form action="{{ url_for('views.search') }}" method="POST" class="d-flex">
+            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>
 

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for item in wishlist_items %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <!-- Display item details -->
+            <div class="card-body">
+                <h5 class="card-title">{{ item.item.name }}</h5>
+                <p class="card-text">{{ item.item.description }}</p>
+                <!-- Example: Button to remove item from wishlist -->
+                <form action="{{ url_for('wishlist.remove_from_wishlist', item_id=item.item.id) }}" method="post">
+                    <button type="submit" class="btn btn-danger">Remove from Wishlist</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
